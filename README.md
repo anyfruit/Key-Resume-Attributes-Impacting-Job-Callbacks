@@ -35,3 +35,73 @@ For more details, refer to the dataset documentation linked above.
 ├── .gitignore            # Files and directories to ignore in Git
 ├── LICENSE               # License file for the repository
 └── README.md             # This file
+```
+
+## Installation
+
+To reproduce the results in this repository, you need Python 3.9 or later and the following packages:
+
+- `pandas`
+- `numpy`
+- `scikit-learn`
+- `matplotlib`
+- `seaborn`
+- `xgboost`
+- `kaggle` (for downloading the dataset)
+
+### Setting Up the Environment
+1. **Clone this repository:**
+
+```bash
+git clone https://github.com/your-username/DATA1030-Final-Project.git
+cd DATA1030-Final-Project
+```
+
+2. **Create a virtual environment and activate it:**
+
+```bash
+python -m venv env
+source env/bin/activate  # On Windows, use `env\Scripts\activate`
+```
+
+3. **Install the required dependencies:**
+
+```bash
+pip install -r requirements.txt
+```
+
+4. **Add your Kaggle API credentials:**
+
+- Create a `.env` file and include your Kaggle API key to access the dataset.
+
+
+## Usage
+
+1. **Download the dataset**: Use the following script to download the dataset:
+
+```python
+from kagglehub import dataset_download
+dataset_download("utkarshx27/which-resume-attributes-drive-job-callbacks")
+```
+2. **Preprocess the data**: Run the preprocessing scripts in the `src/` directory.
+
+3. **Train and evaluate models**: Use the provided pipeline to train and evaluate the models.
+
+
+## Key Results
+
+The project's findings are detailed in the final report (`report/DATA1030_Final_Report.pdf`). Highlights include:
+
+- Feature importances computed using SHAP values.
+- Comparison of machine learning models (e.g., Logistic Regression, Random Forest, XGBoost).
+- Recommendations for improving callback prediction accuracy.
+
+## License
+This project is licensed under the **MIT License**. See the LICENSE file for details.
+
+## Acknowledgments
+- Dataset Source: Kaggle
+- Course: DATA1030 - Hand's On Data Science at Brown University
+
+
+For questions or suggestions, feel free to create an issue in this repository or contact me directly.
