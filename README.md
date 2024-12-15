@@ -1,12 +1,12 @@
 # DATA1030 Final Project: Which Resume Attributes Drive Job Callbacks?
 
 ## Overview
-This repository contains the code and resources for my DATA1030 final project, focused on analyzing which resume attributes influence job callbacks. The project explores machine learning techniques to predict callback rates using a diverse dataset of resume and job attributes.
+This repository contains the code, reports, and resources for my DATA1030 final project, which analyzes the impact of various resume attributes on job callbacks. The project employs machine learning techniques to predict callback rates and identify the most influential resume features.
 
 The primary goals of this project include:
-- Applying advanced machine learning techniques to a real-world dataset.
-- Evaluating the importance of different resume features in predicting callback likelihood.
-- Developing a clear and reproducible machine learning pipeline.
+- Building a reproducible machine learning pipeline to analyze resume data.
+- Identifying key resume features that drive job callbacks.
+- Visualizing and interpreting model results to provide actionable insights.
 
 ---
 
@@ -14,11 +14,9 @@ The primary goals of this project include:
 The dataset used in this project is sourced from [Kaggle](https://www.kaggle.com/datasets/utkarshx27/which-resume-attributes-drive-job-callbacks). It includes **4,870 rows** and **30 columns**, detailing attributes of resumes and job postings, as well as a target variable (`received_callback`) indicating whether a callback was received.
 
 ### Key Features
-- **Resume Features**: Education level, years of experience, computer skills, special skills, etc.
-- **Job Features**: Industry, type, federal contractor status, equal opportunity employer status, etc.
-- **Demographic Features**: Gender, race, and other identifiers.
-
-For more details, refer to the dataset documentation linked above.
+- **Resume Features**: Years of experience, education level, resume quality, and special skills.
+- **Job Features**: Job city, industry, type, and specific requirements.
+- **Demographic Features**: Race, gender, and additional personal attributes.
 
 ---
 
@@ -26,13 +24,21 @@ For more details, refer to the dataset documentation linked above.
 ```plaintext
 .
 ├── data/                 # Data directory
-│   ├── raw/              # Raw data files (if stored locally)
-│   ├── processed/        # Processed data files
+│   ├── preprocessed_example_data.csv  # Example preprocessed data
+│   ├── resume.csv                     # Original dataset
 ├── figures/              # Plots and visualizations
 ├── results/              # Model outputs, predictions, and evaluation metrics
+│   ├── all_predicted_vs_true_LogisticRegression.csv
+│   ├── all_predicted_vs_true_RandomForestClassifier.csv
+│   ├── all_predicted_vs_true_SVC.csv
+│   ├── all_predicted_vs_true_XGBClassifier.csv
+│   ├── LogisticRegression_models.pkl
+│   ├── RandomForestClassifier_models.pkl
+│   ├── SVC_models.pkl
+│   └── XGBClassifier_models.pkl
 ├── report/               # Final report in PDF format
 ├── src/                  # Python scripts and Jupyter notebooks
-├── .gitignore            # Files and directories to ignore in Git
+│   └── DATA1030Project.ipynb
 ├── LICENSE               # License file for the repository
 └── README.md             # This file
 ```
@@ -50,57 +56,42 @@ To reproduce the results in this repository, you need Python 3.9 or later and th
 - `kaggle` (for downloading the dataset)
 
 ### Setting Up the Environment
-1. **Clone this repository:**
+To set up and run this project locally, follow these steps:
 
+1. **Clone the repository**:
 ```bash
-git clone https://github.com/your-username/DATA1030-Final-Project.git
-cd DATA1030-Final-Project
+git clone https://github.com/anyfruit/Key-Resume-Attributes-Impacting-Job-Callbacks.git
+cd Key-Resume-Attributes-Impacting-Job-Callbacks
 ```
 
-2. **Create a virtual environment and activate it:**
-
+2. **Create a virtual environment and install dependencies**:
 ```bash
 python -m venv env
 source env/bin/activate  # On Windows, use `env\Scripts\activate`
-```
-
-3. **Install the required dependencies:**
-
-```bash
 pip install -r requirements.txt
 ```
 
-4. **Add your Kaggle API credentials:**
-
-- Create a `.env` file and include your Kaggle API key to access the dataset.
-
-
-## Usage
-
-1. **Download the dataset**: Use the following script to download the dataset:
-
-```python
-from kagglehub import dataset_download
-dataset_download("utkarshx27/which-resume-attributes-drive-job-callbacks")
+3. **Run the Jupyter Notebook**:
+```bash
+jupyter notebook src/DATA1030Project.ipynb
 ```
-2. **Preprocess the data**: Run the preprocessing scripts in the `src/` directory.
 
-3. **Train and evaluate models**: Use the provided pipeline to train and evaluate the models.
-
+---
 
 ## Key Results
+- **Model Performance**: XGBoost outperformed other models with an F1 score of 0.2414.
+- **Feature Importance**: Key features identified include *years of experience*, *resume quality*, and *special skills*.
+- **SHAP Analysis**: Visualizations highlighted how resume attributes influence predictions.
 
-The project's findings are detailed in the final report (`report/DATA1030_Final_Report.pdf`). Highlights include:
+Full findings are detailed in the final report: [DATA1030 Final Project Report](report/DATA1030%20Final%20Project%20Report.pdf).
 
-- Feature importances computed using SHAP values.
-- Comparison of machine learning models (e.g., Logistic Regression, Random Forest, XGBoost).
-- Recommendations for improving callback prediction accuracy.
+---
 
 ## License
 This project is licensed under the **MIT License**. See the LICENSE file for details.
 
-## Acknowledgments
-- Dataset Source: Kaggle
-- Course: DATA1030 - Hand's On Data Science at Brown University
+---
 
-For questions or suggestions, feel free to create an issue in this repository or contact me directly.
+## Acknowledgments
+- Dataset Source: [Kaggle](https://www.kaggle.com/datasets/utkarshx27/which-resume-attributes-drive-job-callbacks)
+- Course: DATA1030 - Hands-On Data Science at Brown University
