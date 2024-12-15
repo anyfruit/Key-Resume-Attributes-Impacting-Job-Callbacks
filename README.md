@@ -28,17 +28,8 @@ The dataset used in this project is sourced from [Kaggle](https://www.kaggle.com
 │   ├── resume.csv                     # Original dataset
 ├── figures/              # Plots and visualizations
 ├── results/              # Model outputs, predictions, and evaluation metrics
-│   ├── all_predicted_vs_true_LogisticRegression.csv
-│   ├── all_predicted_vs_true_RandomForestClassifier.csv
-│   ├── all_predicted_vs_true_SVC.csv
-│   ├── all_predicted_vs_true_XGBClassifier.csv
-│   ├── LogisticRegression_models.pkl
-│   ├── RandomForestClassifier_models.pkl
-│   ├── SVC_models.pkl
-│   └── XGBClassifier_models.pkl
 ├── report/               # Final report in PDF format
 ├── src/                  # Python scripts and Jupyter notebooks
-│   └── DATA1030Project.ipynb
 ├── LICENSE               # License file for the repository
 └── README.md             # This file
 ```
